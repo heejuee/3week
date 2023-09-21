@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body{margin: 0; background-image: url(background.jpg); background-size:cover; background-attachment:fixed; cursor: url('cursor.png'), auto;}
+		.box{width: 200px; height: 200px; position: absolute;
+			left: 400px; top: 100px;}
+
+		
+		</style>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+	makeBox();
+	function makeBox(){
+		var a = document.createElement("img");
+		a.src = "bubble.png"
+		a.id = "square";
+		a.className = "box";
+		var b = Math.random()*window.innerWitdth;
+		var c = Math.random()*window.innerHeight;
+		a.style.left = b + "px";
+		a.style.top = c + "px";
+		a.onclick = function(){
+			a.parentNode.removeChild(a);
+			makeBox();
+			playPopSound();
+
+		}
+		document.body.appendChild(a);
+	}
+	function playPopSound(){
+		var audio = new Audio('pop.mp3'); audio.play();
+	}
+  	</script>
+
+</body>
+</html>
